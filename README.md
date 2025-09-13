@@ -2,7 +2,7 @@
 
 An AI-powered compliance validation and evidence management system built with Django and Next.js.
 
-## 🚀 Features
+## Features
 
 - **AI-Powered Compliance Analysis**: Automatic validation of evidence using Google Gemini AI
 - **Multi-Factor Authentication (MFA) Controls**: Validate OTP and authenticator screenshots
@@ -12,7 +12,7 @@ An AI-powered compliance validation and evidence management system built with Dj
 - **Company-based Access Control**: Multi-tenant architecture with company isolation
 - **Microsoft SSO Integration**: Seamless authentication with Azure AD
 
-## 🏗️ Architecture
+## Architecture
 
 ### Backend (Django)
 
@@ -37,7 +37,7 @@ An AI-powered compliance validation and evidence management system built with Dj
 - **Deployment**: Docker, Docker Compose
 - **AI/ML**: Google Gemini 2.0 Flash for image analysis
 
-## 📋 Compliance Controls
+## Compliance Controls
 
 ### MFA Control - OTP Authentication
 
@@ -51,20 +51,13 @@ An AI-powered compliance validation and evidence management system built with Dj
 - Confirms "Sign in with Microsoft" buttons
 - Validates Azure AD integration visibility
 
-## 🚀 Quick Start
+## Quick Start
 
 1. **Clone the repository**
 
    ```bash
    git clone <repository-url>
    cd HAKTIV-AI-TASK
-   ```
-
-2. **Set up environment variables**
-
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
    ```
 
 3. **Start with Docker**
@@ -78,14 +71,6 @@ An AI-powered compliance validation and evidence management system built with Dj
    - Backend API: http://localhost:8000
    - Django Admin: http://localhost:8000/admin
 
-## 🔧 Configuration
-
-### Required Environment Variables
-
-- `AI_API_KEY`: Google Gemini API key
-- `AI_API_URL`: Gemini API endpoint
-- `SOCIAL_AUTH_AZUREAD_OAUTH2_KEY`: Azure AD client ID
-- `SOCIAL_AUTH_AZUREAD_OAUTH2_SECRET`: Azure AD client secret
 
 ### Database Setup
 
@@ -95,7 +80,7 @@ The system automatically:
 - Seeds default controls for all companies
 - Creates admin users for each company
 
-## 📊 API Endpoints
+## API Endpoints
 
 - `POST /api/evidence/upload/` - Upload evidence files
 - `GET /api/evidence/` - List evidence records
@@ -103,7 +88,7 @@ The system automatically:
 - `GET /api/compliance/checks/` - Get compliance analysis results
 - `POST /auth/login/azuread-oauth2/` - Microsoft SSO login
 
-## 🎯 AI Analysis Features
+## AI Analysis Features
 
 - **Image Recognition**: Analyzes screenshots for compliance indicators
 - **Confidence Scoring**: Provides confidence levels for analysis results
@@ -117,20 +102,12 @@ The system automatically:
 - **OAuth2 Authentication**: Secure Microsoft SSO integration
 - **Input Validation**: Comprehensive file and data validation
 
-## 📱 User Experience
+## User Experience
 
 - **Intuitive Interface**: Clean, modern design
 - **Real-time Feedback**: Immediate upload status and analysis results
 - **Mobile Responsive**: Works seamlessly on all devices
 - **Accessibility**: WCAG compliant interface design
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📄 License
 
