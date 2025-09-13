@@ -1,0 +1,22 @@
+{
+  "name": "HAKTIV AI - Compliance Management System",
+  "short_name": "HAKTIV AI",
+  "description": "AI-powered compliance validation and evidence management system",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1f2937",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
