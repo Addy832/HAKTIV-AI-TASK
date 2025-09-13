@@ -1,0 +1,8 @@
+Django>=5.2
+djangorestframework>=3.16
+django-cors-headers>=4.8
+gunicorn>=23.0
+psycopg[binary]>=3.2
+python-multipart>=0.0.9
+Pillow>=10.4
+social-auth-app-django>=5.4

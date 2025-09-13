@@ -1,0 +1,80 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=haktiv
+      - POSTGRES_USER=haktiv
+      - POSTGRES_PASSWORD=haktiv
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata_dev:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - SOCIAL_AUTH_AZUREAD_OAUTH2_KEY=f0562b2d-511c-424b-b9c4-06e5f9e8b918
+      - SOCIAL_AUTH_AZUREAD_OAUTH2_SECRET=ZNv8Q~YW9kZfYg5XXjq7-OQtHYA4kSA06VwgIaWr
+      - SOCIAL_AUTH_AZUREAD_OAUTH2_TENANT_ID=69e5bb1b-5c31-45cc-899a-9e6a7c069a17
+      - DJANGO_SETTINGS_MODULE=config.settings
+      - DB_NAME=haktiv
+      - DB_USER=haktiv
+      - DB_PASSWORD=haktiv
+      - DB_HOST=db
+      - DB_PORT=5432
+      # AI Configuration (set these to your Gemini API details)
+      - AI_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
+      - AI_API_KEY=AIzaSyB-DXFmB5j_7K4kivCSr7M3Mryesl8FWIM
+      - AI_MODEL=gemini-2.0-flash
+      # AI Configuration for compliance analysis
+      - DJANGO_BASE_URL=http://localhost:8000
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_TELEMETRY_DISABLED=1
+    command: npm run dev
+
+  # n8n: Using cloud n8n instead of local container
+  # n8n:
+  #   image: n8nio/n8n:latest
+  #   ports:
+  #     - "5678:5678"
+  #   environment:
+  #     - N8N_BASIC_AUTH_ACTIVE=true
+  #     - N8N_BASIC_AUTH_USER=admin
+  #     - N8N_BASIC_AUTH_PASSWORD=admin123
+  #     - WEBHOOK_URL=http://localhost:5678/
+  #     - GENERIC_TIMEZONE=UTC
+  #     - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+  #     - GEMINI_API_KEY=AIzaSyB-DXFmB5j_7K4kivCSr7M3Mryesl8FWIM
+  #   volumes:
+  #     - n8n_data:/home/node/.n8n
+
+networks:
+  default:
+    name: haktiv-dev
+
+volumes:
+  pgdata_dev:
+  # n8n_data:  # Not needed with cloud n8n
