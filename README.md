@@ -15,6 +15,7 @@ An AI-powered compliance validation and evidence management system built with Dj
 ## 🏗️ Architecture
 
 ### Backend (Django)
+
 - **API Endpoints**: RESTful API for evidence management and compliance checks
 - **AI Integration**: Google Gemini API for image analysis
 - **Database Models**: Evidence, Controls, Companies, Users, and Compliance Checks
@@ -22,6 +23,7 @@ An AI-powered compliance validation and evidence management system built with Dj
 - **File Management**: Secure file upload and storage
 
 ### Frontend (Next.js)
+
 - **Modern UI**: Responsive design with Tailwind CSS
 - **Real-time Updates**: Automatic status refresh after uploads
 - **File Upload**: Drag-and-drop evidence upload interface
@@ -38,11 +40,13 @@ An AI-powered compliance validation and evidence management system built with Dj
 ## 📋 Compliance Controls
 
 ### MFA Control - OTP Authentication
+
 - Validates OTP input fields and 6-digit codes
 - Detects authenticator app references
 - Ensures proper labeling and QR codes
 
 ### SSO Login Control - Microsoft Azure AD
+
 - Verifies Microsoft branding and logos
 - Confirms "Sign in with Microsoft" buttons
 - Validates Azure AD integration visibility
@@ -50,18 +54,21 @@ An AI-powered compliance validation and evidence management system built with Dj
 ## 🚀 Quick Start
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd HAKTIV-AI-TASK
    ```
 
 2. **Set up environment variables**
+
    ```bash
    cp .env.example .env
    # Edit .env with your configuration
    ```
 
 3. **Start with Docker**
+
    ```bash
    docker-compose up --build
    ```
@@ -83,6 +90,7 @@ An AI-powered compliance validation and evidence management system built with Dj
 ### Database Setup
 
 The system automatically:
+
 - Runs database migrations
 - Seeds default controls for all companies
 - Creates admin users for each company
